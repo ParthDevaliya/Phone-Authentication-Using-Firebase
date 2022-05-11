@@ -6,14 +6,14 @@ class FirebaseAuthHandlExceptionsUtils {
     print(firebaseAuthException.code);
     switch (firebaseAuthException.code) {
       case 'network-request-failed':
-        message = 'Please check your internet connection !';
+        message = 'Please check your mobile internet connection';
         break;
       case 'invalid-verification-code':
         message = 'Please enter a valid code';
         break;
       case 'too-many-requests':
         message =
-            'Please try again after some time. You have used multiple verification requests!';
+            'Please try again after some time. You have used multiple time verification requests!';
         break;
       default:
         message = firebaseAuthException.message;

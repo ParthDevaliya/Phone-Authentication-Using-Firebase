@@ -10,7 +10,7 @@ class DialogUtils {
         builder: (context) {
           return AlertDialog(
             shape:
-            RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
             content: Text(message),
             actions: <Widget>[
               FlatButton(
@@ -27,19 +27,6 @@ class DialogUtils {
         });
   }
 
-  static Future<void> showLoadingDialog(BuildContext context) {
-    return showDialog(
-        context: context,
-        barrierDismissible: false,
-        builder: (context) {
-          return AlertDialog(
-            shape:
-            RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-            content: Container(height: 50, child: LoadingWidget()),
-          );
-        });
-  }
-
   static Future<void> showLoadingDialogWithMessage(
       BuildContext context, String message) {
     return showDialog(
@@ -48,7 +35,7 @@ class DialogUtils {
         builder: (context) {
           return AlertDialog(
             shape:
-            RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
             title: Text(
               message,
               style: TextStyle(fontSize: 16),

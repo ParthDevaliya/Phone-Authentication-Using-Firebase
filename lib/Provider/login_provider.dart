@@ -5,7 +5,6 @@ import 'package:phone_auth/utils/firebase_auth_util.dart';
 import 'package:phone_auth/utils/firebase_excauth_exception_utils.dart';
 
 class LoginProvider extends ChangeNotifier {
-
   LoginProvider();
 
   final _firebaseAuthUtil = FirebaseAuthUtil();
@@ -30,14 +29,12 @@ class LoginProvider extends ChangeNotifier {
     }
   }
 
-
   void login(
       {@required String phoneNumber,
       @required GestureTapCallback onCodeSent,
       @required ValueChanged<String> onFailure}) async {
     try {
       _setIsOtpSending = true;
-      // await _loginRepo.loginCheck(phoneNumber: phoneNumber);
       await sendFirebaseOTP(
           phoneNumber: phoneNumber,
           onCodeSent: onCodeSent,
@@ -76,7 +73,7 @@ class LoginProvider extends ChangeNotifier {
           verificationId: _verificationId,
           verificationCode: verificationCode,
           onVerificationSuccess: (value) {
-            _updateDeviceToken(
+            _verificationDone(
                 phoneNumber: value.phoneNumber,
                 onFailure: onFailure,
                 onDeviceTokenUpdated: () {
@@ -93,7 +90,7 @@ class LoginProvider extends ChangeNotifier {
     }
   }
 
-  Future<void> _updateDeviceToken(
+  Future<void> _verificationDone(
       {@required String phoneNumber,
       @required ValueChanged<String> onFailure,
       @required GestureTapCallback onDeviceTokenUpdated}) async {

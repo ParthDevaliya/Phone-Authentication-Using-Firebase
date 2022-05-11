@@ -50,7 +50,7 @@ class FirebaseAuthUtil {
       if (value.user != null) {
         onVerificationSuccess(value.user);
       } else {
-        onCodeVerificationFailed('Code VerificationFailed');
+        onCodeVerificationFailed('VerificationFailed');
       }
     }).catchError((error) {
       onCodeVerificationFailed(error.toString());
